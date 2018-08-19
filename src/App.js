@@ -10,6 +10,14 @@ class App extends Component {
       salary: 200,
       players: [
           // Stored in a {name: name, balance: balance} format
+          {
+            name: "Player 1",
+            balance: 1500
+          },
+          {
+            name: "Player 2",
+            balance: 1500
+          }
         ]
     }
     this.addPlayer = this.addPlayer.bind(this)
@@ -31,7 +39,7 @@ class App extends Component {
         <div className="container">
           <h1 className="text-center display-3">Monopoly Money</h1>
           <Options startingBalance={this.state.startingBalance} addPlayer={this.addPlayer}/>
-          <Players />
+          <Players players={this.state.players} />
         </div>
       </div>
     );
