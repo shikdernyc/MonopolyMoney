@@ -1,24 +1,33 @@
 import React, {Component} from 'react'
 
 class Options extends Component{
-    addPlayer = function(event){
+      constructor(props){
+        super(props)
+        console.log(props)
+        this.addPlayer = props.addPlayer
+    }
+    
+    handleAddPlayer(event){
+        event.preventDefault()
+        const newPlayerElm = document.getElementById('newPlayerName')
+        this.addPlayer(newPlayerElm.value)
+        newPlayerElm.value = ""
+    }
+    
+    reset(event){
         
     }
     
-    reset = function(event){
-        
-    }
-    
-    startingCash = function(){
+    startingCash(){
         
     }
     
     render(){
         const addPlayerModal =
             <div class="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Player Name" aria-describedby="addPlayer"/>
+              <input type="text" className="form-control" id="newPlayerName" placeholder="Player Name" aria-describedby="addPlayer"/>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="addPlayer">Add</button>
+                <button class="btn btn-outline-secondary" type="button" id="addPlayer" onClick={this.handleAddPlayer.bind(this)}>Add</button>
               </div>
             </div>
 
@@ -32,13 +41,7 @@ class Options extends Component{
 
         return (
             <div className="my-4">
-                {/*<div className="row">
-                    <button type="button" className="btn btn-secondary col mx-3" onClick={this.addPlayer}>Add Player</button>
-                    <button type="button" className="btn btn-secondary col mx-3" onClick={this.reset}>Reset</button>
-                    <button type="button" className="btn btn-secondary col mx-3" onClick={this.startingCash}>Starting Balance</button>
-                </div>
-                */}
-                <div className="row my-3">
+                <div className="row my-3 shadow">
                     <div className="col">
                         {addPlayerModal}
                     </div>
