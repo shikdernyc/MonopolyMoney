@@ -7,11 +7,15 @@ class Players extends Component{
     }
     
     render(){
+        let {players} = this.props
+        let playerList = players.map(({name, balance}, index)=>(
+                <Player name={name} balance={balance}/>
+            ))
+        
         return(
             <div>
                 <div class="card-columns">
-                    <Player name="Player1" balance={1500}/>
-                    <Player name="Player2" balance={1500}/>
+                    {playerList}
                 </div>
             </div>
         )
