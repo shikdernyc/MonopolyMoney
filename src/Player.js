@@ -13,9 +13,9 @@ class Player extends Component{
     render(){
         let {name, balance} = this.props
         return(
-            <div class="card">
-                <h3 className="display-2">{name}</h3>
-                <h2 className="display-1">{balance}</h2>
+            <div className="card text-center bg-light shadow rounded">
+                <h2 className="display-2">{name}</h2>
+                <h3>${balance}</h3>
                 <div class="card-body">
                     <CashMenu />
                 </div>
