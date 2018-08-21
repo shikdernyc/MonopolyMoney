@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Options from './Options.js'
 import Players from './Players.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   constructor(props){
