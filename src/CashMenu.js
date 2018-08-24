@@ -10,14 +10,18 @@ class CashMenu extends Component{
         // TODO: Update state to hold current value
         let elm = event.target
     }
+
     
     handleAddAmount(event){
         let amount = parseInt(document.getElementById('amount').value)
         this.setBalance(this.props.currentBalance + amount)
+        event.target.value = ""
     }
     
     handleRemoveAmount(event){
-        
+        let amount = parseInt(document.getElementById('amount').value)
+        this.setBalance(this.props.currentBalance - amount)
+        event.target.value = ""
     }
     
     handleTransferAmount(event){
@@ -38,7 +42,7 @@ class CashMenu extends Component{
                 </div>
                 <div className="row">
                     <button type="button" className="btn btn-success col mx-2 my-2" onClick={this.handleAddAmount.bind(this)}>Add</button>
-                    <button type="button" className="btn btn-danger col mx-2 my-2" onClick={this.reset}>Remove</button>
+                    <button type="button" className="btn btn-danger col mx-2 my-2" onClick={this.handleRemoveAmount.bind(this)}>Remove</button>
                 </div>
                 <div className="row">
                     <select class="form-control col mx-2 my-2">
