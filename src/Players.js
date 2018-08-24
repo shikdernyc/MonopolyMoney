@@ -9,7 +9,7 @@ class Players extends Component{
     render(){
         let {players} = this.props
         let playerList = players.map(({name, balance}, index)=>(
-                <Player name={name} balance={balance}/>
+                <Player name={name} balance={balance} setPlayerBalance={this.props.setPlayerBalance}/>
             ))
         
         return(
