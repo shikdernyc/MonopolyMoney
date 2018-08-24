@@ -5,6 +5,7 @@ class Options extends Component{
         super(props)
         console.log(props)
         this.addPlayer = props.addPlayer
+        this.reset = props.reset
     }
     
     handleAddPlayer(event){
@@ -14,8 +15,9 @@ class Options extends Component{
         newPlayerElm.value = ""
     }
     
-    reset(event){
-        
+    handleReset(event){
+        console.log('handling reset')
+        this.reset()
     }
     
     startingCash(){
@@ -46,7 +48,7 @@ class Options extends Component{
                         {addPlayerModal}
                     </div>
                     <div className="col">
-                        <button type="button" className="btn btn-secondary col" onClick={this.reset}>Reset</button>
+                        <button type="button" className="btn btn-secondary col" onClick={this.handleReset.bind(this)}>Reset</button>
                     </div>                    
                     <div className="col">
                         {startingBalance}
