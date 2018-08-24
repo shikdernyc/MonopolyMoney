@@ -6,11 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    this.defaultState = {
       startingBalance: 1500,
       salary: 200,
       players: [
-          // Stored in a {name: name, balance: balance} format
+          // Dummy Data
           {
             name: "Player 1",
             balance: 1500
@@ -21,9 +21,15 @@ class App extends Component {
           }
         ]
     }
+    this.state = this.defaultState
     this.addPlayer = this.addPlayer.bind(this)
+    this.reset = this.reset.bind(this)
   }
   
+  reset(){
+    this.setState(this.defaultState)
+  }
+
   addPlayer(playerName){
     const newPlayer = {
       name: playerName,
@@ -39,7 +45,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <h1 className="text-center display-3">Monopoly Money</h1>
-          <Options startingBalance={this.state.startingBalance} addPlayer={this.addPlayer}/>
+          <Options startingBalance={this.state.startingBalance} addPlayer={this.addPlayer} reset={this.reset}/>
           <Players players={this.state.players} />
         </div>
       </div>
